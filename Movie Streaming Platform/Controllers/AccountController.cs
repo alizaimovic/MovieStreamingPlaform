@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Movie_Streaming_Platform.Models.DB;
 using Movie_Streaming_Platform.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,7 @@ namespace Movie_Streaming_Platform.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent : false);
-                    return RedirectToAction("index", "Home");
+                    return RedirectToAction("Index", "Movie");
                 }
 
                 foreach (var error in result.Errors)
@@ -74,7 +75,7 @@ namespace Movie_Streaming_Platform.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");      
+                    return RedirectToAction("Index", "Movie");      
                 }
 
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
