@@ -13,7 +13,7 @@ namespace Movie_Streaming_Platform.Controllers
         }
 
         // GET: MovieController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult MoviePage(int id)
         {
             return View();
         }
