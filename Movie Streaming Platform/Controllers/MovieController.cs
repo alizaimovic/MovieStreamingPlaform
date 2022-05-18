@@ -1,27 +1,89 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Movie_Streaming_Platform.Models.DB;
+using System;
+using System.Linq;
+using Movie_Streaming_Platform.ViewModels;
 
 namespace Movie_Streaming_Platform.Controllers
 {
     public class MovieController : Controller
     {
+        public readonly MoviesContext _context;
+
+        public MovieController(MoviesContext context) 
+        {
+            _context = context;
+        }
         // GET: MovieController
         [HttpGet]
         public ActionResult Index()
         {
+
             return View();
         }
 
-        // GET: MovieController/Details/5
+        // GET: MovieController/MoviePage/5
         public ActionResult MoviePage(int id)
         {
-            return View();
+            // id 0 = movies first or default 
+            // id 1 = action
+            // id 2 = Comdy
+            // id 3 = Drama
+            // id 4 = Horror
+            // id 5 = Romance
+            // id 6 = SciFi
+            var searchString ="";
+            switch (id)
+            {
+                case 1:
+                    searchString = "Action";
+                    break;
+                case 2:
+                    searchString = "Comedy";
+                    break;
+                case 3:
+                    searchString = "Drama";
+                    break;
+                case 4:
+                    searchString = "Horror";
+                    break;
+                case 5:
+                    searchString = "Romance";
+                    break;
+                case 6:
+                    searchString = "SciFI";
+                    break;
+                default:
+                    searchString = "Comedy"; //for tesing -> -Layout does not parse the id properly
+                    break;
+            }
+
+            var movies = _context.Movies.ToList();
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.Category.Contains(searchString)).ToList();
+            }
+
+            var model = new MoviePageViewModel
+            {
+                Genre = searchString,
+                Movies = movies
+
+            };
+
+            return View(model);
         }
 
-        // GET: MovieController/Create
-        public ActionResult Create()
+        // GET: MovieController/PlayerPage
+        public ActionResult PlayerPage(string movieLocation)
         {
-            return View();
+            var model = new PlayerViewModel
+            {
+                MovieLocation = "https://localhost:55056/VideoStramingAPIController/GetVideoContent?fileName=" + movieLocation
+            };
+            return View(model);
         }
 
         // POST: MovieController/Create
