@@ -8,7 +8,7 @@
     <div class="u-background-video u-expanded u-video-contain" style="">
         <div class="embed-responsive u-block-2530-3" style="position: absolute; width: 178%; left: -39%; height: 178%; top: -39%">
             <video width="480" height="320" controls="controls" autoplay="autoplay">
-                <source src=@Model.MovieLocation type="video/mp4">
+                <source src="@Url.Action("VideoStramingAPI", "GetVideoContent" , new { fileName = Model.MovieLocation})" type="video/mp4">
             </video>
          </div>
     </div>

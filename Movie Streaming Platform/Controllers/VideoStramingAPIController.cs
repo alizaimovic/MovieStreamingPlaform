@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 namespace Movie_Streaming_Platform.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
     public class VideoStramingAPIController : ControllerBase
     {
         private readonly IHostingEnvironment _hostingEnvironment;
@@ -20,7 +19,7 @@ namespace Movie_Streaming_Platform.Controllers
         {
             _hostingEnvironment = hostingEnvironment;
         }
-        [HttpGet("GetVideoContent")]
+        [HttpGet]
         public async Task<IActionResult> GetVideoContent(string fileName)
         {
             string path = Path.Combine(_hostingEnvironment.WebRootPath, "Movies/") + fileName;

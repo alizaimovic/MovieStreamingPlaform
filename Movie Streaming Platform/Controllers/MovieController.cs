@@ -23,6 +23,12 @@ namespace Movie_Streaming_Platform.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
         // GET: MovieController/MoviePage/5
         public ActionResult MoviePage(int id)
         {
@@ -81,7 +87,7 @@ namespace Movie_Streaming_Platform.Controllers
         {
             var model = new PlayerViewModel
             {
-                MovieLocation = "https://localhost:55056/VideoStramingAPIController/GetVideoContent?fileName=" + movieLocation
+                MovieLocation =  movieLocation
             };
             return View(model);
         }

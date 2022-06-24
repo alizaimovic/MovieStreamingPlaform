@@ -29,7 +29,8 @@ namespace MvcMovie.Models
                         ReleaseDate = Convert.ToString(DateTime.Parse("1989-2-12")),
                         Category = "Romantic Comedy",
                         UnitPrice = 7.99M,
-                        MemoryLocation = "sample-mp4-file-small.mp4"
+                        MemoryLocation = "sample-mp4-file-small.mp4",
+                        PhotoMemoryLocation = "/Images/96_Hours.jpeg"
                     },
 
                     new Movies
@@ -39,7 +40,8 @@ namespace MvcMovie.Models
                         ReleaseDate = Convert.ToString(DateTime.Parse("1984-3-13")),
                         Category = "Comedy",
                         UnitPrice = 8.99M,
-                        MemoryLocation = "sample-mp4-file-small - Copy.mp4"
+                        MemoryLocation = "sample-mp4-file-small - Copy.mp4",
+                        PhotoMemoryLocation = "/Images/ghostbusters.jpg"
                     },
 
                     new Movies
@@ -49,7 +51,8 @@ namespace MvcMovie.Models
                         ReleaseDate = Convert.ToString(DateTime.Parse("1986-2-23")),
                         Category = "Comedy",
                         UnitPrice = 9.99M,
-                        MemoryLocation = "sample-mp4-file-small - Copy (2).mp4"
+                        MemoryLocation = "sample-mp4-file-small - Copy (2).mp4",
+                        PhotoMemoryLocation = "/Images/ghostbusters2.jpg"
                     },
 
                     new Movies
@@ -59,7 +62,8 @@ namespace MvcMovie.Models
                         ReleaseDate = Convert.ToString(DateTime.Parse("1959-4-15")),
                         Category = "Western",
                         UnitPrice = 3.99M,
-                        MemoryLocation = "sample-mp4-file-small - Copy (3).mp4"
+                        MemoryLocation = "sample-mp4-file-small - Copy (3).mp4",
+                        PhotoMemoryLocation = "/Images/rio_bravo.jpg"
                     }
                 ) ;
                 context.SaveChanges();
