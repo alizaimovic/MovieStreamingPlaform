@@ -13,5 +13,6 @@ namespace Movie_Streaming_Platform.Models.DB
         public string ReleaseDate { get; set; }
         public decimal UnitPrice { get; set; }
         public string MemoryLocation { get; set; }
+        public string PhotoMemoryLocation { get; set; }
     }
 }
